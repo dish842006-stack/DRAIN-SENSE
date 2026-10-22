@@ -1,69 +1,110 @@
 # DRAIN-SENSE — Test and Validation Plan
 
 **Application Unique ID:** VK26-IITH-SC-0073  
-**Project:** Smart Urban Drainage Health Monitoring and Flood Early-Warning System
+**Project:** Smart Urban Drainage Health Monitoring and Flood Early-Warning System  
+**Domain:** Sustainable Cities  
+**Testing Stage:** Planned; physical validation pending
 
-**Status:** Planned tests; no physical test results available yet.
+## 1. Purpose
 
-## 1. Objective
+This document defines the proposed test methodology for evaluating DRAIN-SENSE, a hardware-based concept for monitoring water levels in a tabletop drainage model and generating threshold-based alerts.
 
-This plan defines how the proposed DRAIN-SENSE tabletop prototype will be assessed after assembly. The objective is to evaluate water-level detection, alert operation, repeatability, and response time under controlled conditions.
+The test plan establishes the conditions to be examined, the expected system behaviour, and the evidence required to assess performance after implementation. The tests described below are planned activities, not completed experiments.
 
-## 2. Planned Tests
+## 2. Testing Objectives
 
-| Test ID | Test | Procedure | Data to Record |
+The proposed testing process aims to:
+
+1. Evaluate ultrasonic water-surface distance measurements against reference measurements.
+2. Examine measurement consistency at different water levels.
+3. Verify the controller's response to configured warning thresholds.
+4. Assess LED and buzzer activation under defined operating conditions.
+5. Examine the system's response to invalid readings and sensor interruptions.
+6. Evaluate the physical arrangement for electrical safety and water containment.
+
+## 3. Test Environment
+
+Testing is intended to take place in a controlled tabletop drainage model incorporating the ultrasonic sensor, ESP32 controller, alert indicators, and water-containing channel.
+
+Reference distance or depth measurements will be obtained using an appropriate measuring instrument. The sensor mounting height, channel reference level, configured thresholds, power arrangement, and test conditions will be documented before testing.
+
+Testing should begin with a dry setup and proceed to controlled water-level changes only after the electrical assembly has been checked.
+
+## 4. Planned Test Cases
+
+| Test ID | Test Description | Method | Expected Result |
 |---|---|---|---|
-| T01 | Initial power-on | Power the assembled circuit using its intended supply | Startup behaviour and any faults |
-| T02 | Low-level condition | Introduce a water level below the configured warning threshold | Sensor reading and alert state |
-| T03 | Threshold detection | Raise the water level through the configured threshold | Threshold reading and alert activation |
-| T04 | High-level condition | Raise the water level above the warning threshold | Sensor reading and alert state |
-| T05 | Reset behaviour | Lower the water level after triggering an alert | Reset condition and alert deactivation |
-| T06 | Repeatability | Repeat the same controlled threshold test several times | Readings and activation consistency |
-| T07 | Response time | Measure elapsed time between crossing the threshold and alert activation | Time for each trial |
-| T08 | Stability | Observe readings at a fixed water level for a defined period | Reading variation and unexpected alerts |
+| DS-T01 | Sensor initialization | Power the assembled system and inspect sensor readings | The sensor initializes and provides usable readings under suitable conditions |
+| DS-T02 | Distance measurement | Compare sensor readings with reference distances at selected positions | Measurements fall within the tolerance established for the test |
+| DS-T03 | Water-level tracking | Change the water level in controlled increments | Measured distance decreases as the water surface rises, subject to sensor limitations |
+| DS-T04 | Normal-state indication | Operate the model below the warning threshold | The configured normal-status indication is maintained |
+| DS-T05 | Warning-threshold activation | Raise the water level through the configured warning threshold | The warning indication activates according to the programmed logic |
+| DS-T06 | High-level alert | Raise the water level through the configured high-level threshold | The configured high-level indication and audible alert activate |
+| DS-T07 | Threshold transition | Raise and lower the water level around configured thresholds | State changes follow the implemented logic without unintended rapid switching |
+| DS-T08 | Invalid sensor reading | Introduce a controlled sensor interruption or invalid measurement | The system handles the invalid reading according to its implemented error-handling logic |
+| DS-T09 | Repeatability | Repeat measurements at the same reference levels | The spread of readings can be quantified and compared across trials |
+| DS-T10 | Water containment and electrical arrangement | Inspect the physical layout during controlled operation | Electrical components remain protected from direct water contact and spills under the tested conditions |
 
-## 3. Test Method
+## 5. Measurement and Evaluation
 
-1. Confirm the selected sensor and its operating requirements.
-2. Assemble the circuit and inspect all connections before powering it.
-3. Establish a safe, controlled test arrangement.
-4. Record the sensor output at known water levels using a suitable reference measurement.
-5. Identify the threshold and alert behaviour specified in the implemented design.
-6. Repeat tests under comparable conditions.
-7. Record failures, inconsistent readings, and corrective changes.
-8. Preserve genuine photographs and dated test records.
+### 5.1 Distance Measurement Error
 
-The number of trials, reference measurement method, and acceptance criteria must be finalised before formal testing begins.
+The absolute distance error for each trial can be calculated as:
 
-## 4. Data Recording Template
+\[
+E_{\mathrm{abs}}=|d_{\mathrm{sensor}}-d_{\mathrm{reference}}|
+\]
 
-| Trial | Reference Water Level | Sensor Reading | Alert Activated? | Response Time | Remarks |
-|---|---|---|---|---|---|
-| 1 | Pending | Pending | Pending | Pending | Not tested |
-| 2 | Pending | Pending | Pending | Pending | Not tested |
-| 3 | Pending | Pending | Pending | Pending | Not tested |
+where:
 
-Replace the pending entries with measured values only after conducting the corresponding trials.
+- \(d_{\mathrm{sensor}}\) is the distance measured by the ultrasonic sensor.
+- \(d_{\mathrm{reference}}\) is the corresponding reference distance.
 
-## 5. Evaluation Criteria
+If the reference distance is non-zero, percentage error may be calculated as:
 
-The prototype will be evaluated for:
+\[
+E_{\%}=\frac{|d_{\mathrm{sensor}}-d_{\mathrm{reference}}|}{d_{\mathrm{reference}}}\times100
+\]
 
-- Correct alert operation at the configured threshold.
-- Consistent behaviour across repeated trials.
-- Reasonable agreement between sensor readings and reference measurements.
-- Repeatable response-time measurements.
-- Safe operation and clearly documented limitations.
+The reference measurement and the conditions under which it was taken must be recorded. Percentage error is not appropriate when the reference value is zero.
 
-Numerical acceptance limits will be set after the sensor and circuit design have been finalised.
+### 5.2 Threshold Response
 
-## 6. Limitations
+Threshold tests will record the reference water level, measured sensor distance, configured threshold, controller state, and indicator response.
 
-A successful tabletop test would not establish field reliability or flood-prediction accuracy. Real drains involve varying flow, sediment, debris, rainfall, and installation conditions that require separate investigation.
+The response time, if measured, will be calculated from the time the defined threshold condition is reached to the time the corresponding alert activates. Any timing method and measurement uncertainty will be documented.
 
-## 7. Results Status
+### 5.3 Repeatability
 
-**Testing has not yet been completed.** No measured accuracy, response time, repeatability, or field-performance result is claimed in this document.
+Repeated readings will be collected at selected fixed water levels. Their range, mean, or standard deviation may be calculated to describe measurement variation.
 
-Test records will be updated after actual prototype assembly and validation.
+Acceptance tolerances will be established before the relevant test is conducted and will reflect the intended demonstration requirements and selected sensor specifications.
 
+## 6. Evidence and Record Keeping
+
+The validation record is intended to include:
+
+- Test date and setup description.
+- Sensor mounting height and reference measurements.
+- Component configuration and programmed threshold values.
+- Raw sensor readings and calculated measurement errors.
+- Observed LED and buzzer behaviour.
+- Any invalid readings, interruptions, or unexpected responses.
+- Photographs or video of the actual test setup, where available.
+- Test outcome and any corrective changes made.
+
+Only evidence from tests actually performed will be reported as an observed result.
+
+## 7. Limitations
+
+Successful tabletop testing would demonstrate behaviour only under the tested conditions. It would not, by itself, establish reliable operation in real drainage infrastructure.
+
+Outdoor deployment would require further evaluation of sensor protection, debris, sediment, water turbulence, weather exposure, long-term reliability, power continuity, and communication requirements.
+
+The present test plan does not claim validation of automatic blockage detection, rainfall forecasting, or city-scale flood prediction.
+
+## 8. Current Status
+
+The test cases and evaluation methods have been defined at the planning stage. Physical assembly, calibration, test execution, and results recording remain pending.
+
+**Current validation status:** Tests planned; no experimental results claimed.
