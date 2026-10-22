@@ -34,9 +34,8 @@ The initial demonstrator is intended for controlled testing. It is not yet a val
 
 ## 5. Preliminary Budget
 
-**Target budget: under ₹3,000.**
+**Target budget: upto ₹4,200.**
 
-The bill of materials and component prices are preliminary estimates and must be verified before procurement.
 
 ## 6. Current Project Status
 
