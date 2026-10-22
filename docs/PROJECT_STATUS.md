@@ -1,69 +1,91 @@
-# DRAIN-SENSE — Project Status and Evidence Tracker
+# DRAIN-SENSE — Project Status
 
 **Application Unique ID:** VK26-IITH-SC-0073  
-**Competition:** Vishwakarma Awards 2026–27 — Stage 2  
+**Project:** Smart Urban Drainage Health Monitoring and Flood Early-Warning System  
+**Competition:** Vishwakarma Awards 2026–27  
 **Domain:** Sustainable Cities
 
-## 1. Overall Status
+## 1. Current Development Stage
 
-**Current stage:** Concept design and documentation.
+DRAIN-SENSE is currently at the proposed-design and planning stage. The project documentation establishes the intended system architecture, preliminary hardware configuration, operating principle, budget estimate, and validation approach.
 
-The project is being documented as a proposed low-cost drainage monitoring demonstrator. Hardware fabrication, calibration, and physical validation have not yet been completed.
+The project is intended to demonstrate water-level monitoring and threshold-based alerts in a controlled tabletop drainage model.
 
-## 2. Work Status
+## 2. Development Progress
 
-| Activity | Status | Evidence / Next Action |
+| Project Element | Current Status |
+|---|---|
+| Problem statement and project objectives | Documented |
+| Proposed system architecture | Documented |
+| Preliminary component selection | Documented |
+| Initial bill of materials and cost estimate | Prepared; supplier quotations not verified |
+| Sensor measurement and alert logic | Defined conceptually |
+| Test and validation methodology | Planned |
+| Hardware procurement | Pending |
+| Physical assembly | Pending |
+| Sensor calibration | Pending |
+| Controlled experimental testing | Pending |
+| Performance evaluation | Pending |
+| Field deployment | Not undertaken |
+
+These statuses describe the documented project stage and should be updated only when the corresponding work has actually been completed.
+
+## 3. Preliminary Budget Status
+
+The current planning estimate is ₹4,200, within the proposed budget range of ₹3,000–₹5,000.
+
+The estimate covers the proposed controller, ultrasonic sensor, alert components, prototyping accessories, and tabletop model materials. It is not a verified quotation or a record of actual expenditure. Final costs will depend on component selection, supplier prices, and reusable materials available in the laboratory.
+
+## 4. Planned Implementation and Validation
+
+The proposed development sequence is:
+
+1. Finalize the component configuration and electrical design.
+2. Procure the selected components and document actual expenditure.
+3. Assemble the sensor, controller, and alert circuit.
+4. Integrate the electronics with the tabletop drainage model.
+5. Calibrate the sensor against reference distance measurements.
+6. Conduct controlled water-level and threshold-alert tests.
+7. Record test evidence, measurement errors, observed limitations, and corrective changes.
+8. Evaluate the results against acceptance criteria established before testing.
+
+The sequence represents planned work, not completed implementation.
+
+## 5. Principal Technical Risks
+
+| Risk | Potential Effect | Proposed Mitigation |
 |---|---|---|
-| Project concept and problem statement | Documented | README.md |
-| Preliminary component budget | Drafted | Verify prices and selected components |
-| Proposed system architecture | Documented | docs/SYSTEM_OVERVIEW.md |
-| Test and validation plan | Documented | tests/TEST_PLAN.md |
-| Final component selection | Pending | Confirm specifications and compatibility |
-| Procurement | Pending | Record actual purchases and receipts |
-| Circuit assembly | Pending | Save a genuine photograph after assembly |
-| Sensor calibration | Pending | Record reference levels and sensor readings |
-| Functional testing | Pending | Record actual alert behaviour |
-| Repeatability testing | Pending | Complete repeated controlled trials |
-| Response-time measurement | Pending | Record measured times |
-| Final wiring schematic | Pending | Add diagram of the actual circuit |
-| Native CAD/EDA files | Pending | Add if created and required |
-| Final performance report | Pending | Use verified test data only |
+| Unstable or invalid ultrasonic readings | Incorrect water-level estimates | Evaluate sensor positioning, repeated readings, and invalid-reading handling |
+| Incorrect threshold configuration | Alerts may activate too early or too late | Define thresholds using the model geometry and evaluate them through controlled tests |
+| Water exposure to electronics | Electrical damage or unsafe operation | Keep electronics protected from water and use suitable containment |
+| Power or wiring issues | Interrupted or inconsistent operation | Check component ratings, connections, and power requirements |
+| Variation in actual component costs | Budget deviation | Record actual procurement costs and revise the estimate accordingly |
 
-## 3. Evidence Checklist
+These risks have been identified at the design stage; mitigation effectiveness remains to be demonstrated.
 
-- [ ] Verified vendor quotations
-- [ ] Actual purchase records
-- [ ] Final component list
-- [ ] Genuine prototype photographs
-- [ ] Actual circuit and wiring documentation
-- [ ] Dated calibration records
-- [ ] Completed test data sheets
-- [ ] Response-time measurements
-- [ ] Repeatability analysis
-- [ ] Documented limitations and corrective actions
-- [ ] Final revision record
+## 6. Scope of Current Claims
 
-## 4. Evidence Integrity
+The project currently presents a proposed design for water-level measurement and threshold-based local alerts. No claims are made that the hardware has been fabricated, calibrated, or experimentally validated.
 
-All performance claims must be supported by genuine observations or measurements. Proposed targets, estimates, simulations, and plans must be labelled accordingly.
+Automatic blockage detection, real-time municipal monitoring, wireless integration, and city-scale flood prediction are outside the demonstrated capabilities of the current design.
 
-Concept illustrations must not be represented as photographs of a built prototype. Planned tests must not be reported as completed tests.
+Any future extension into operational infrastructure would require additional engineering development and field validation.
 
-## 5. Revision Log
+## 7. Success Criteria for Future Evaluation
 
-| Revision | Date | Change |
-|---|---|---|
-| 0.1 | 2026-10-21 | Initial project status and evidence tracker created |
+The implementation will be evaluated using criteria established before testing, including:
 
-Future entries should be added when actual changes occur. Update the date and description for each genuine revision.
+- Water-level estimates compared with reference measurements.
+- Repeatability of readings under consistent conditions.
+- Correct operation of programmed alert thresholds.
+- Appropriate handling of invalid sensor readings.
+- Consistent LED and buzzer responses.
+- Safe physical separation of electronic components from water.
 
-## 6. Next Milestones
+Measured outcomes will be documented after the relevant tests are conducted. No numerical performance results are available at the present stage.
 
-1. Finalise and verify the component list.
-2. Procure components within the approved budget.
-3. Assemble the tabletop demonstrator.
-4. Verify sensor operation and alert logic.
-5. Conduct controlled tests and preserve the results.
-6. Update the documentation with verified evidence.
+## 8. Project Summary
 
-**Current results status:** Physical testing pending.
+DRAIN-SENSE has a documented preliminary design, proposed component configuration, estimated budget, and planned validation methodology. The next development stage is physical implementation followed by calibration and controlled testing.
+
+The project’s technical performance and practical suitability will be assessed using recorded evidence rather than assumed from the proposed design.
