@@ -2,39 +2,34 @@
 
 **Application Unique ID:** VK26-IITH-SC-0073  
 **Project:** Smart Urban Drainage Health Monitoring and Flood Early-Warning System  
-**Budget target:** Under ₹3,000
+**Budget target:** ₹3,000–₹5,000  
+**Preliminary planning estimate:** ₹4,200
 
 ## 1. Proposed Components
 
 | No. | Component | Purpose | Estimated Cost (INR) |
 |---:|---|---|---:|
-| 1 | Arduino-compatible microcontroller board | Reads sensor values and controls alerts | ₹500 |
-| 2 | Water-level sensor | Detects water level in the demonstrator | ₹200 |
-| 3 | LED indicators | Provide visual alerts | ₹50 |
-| 4 | Active buzzer | Provides an audible alert | ₹50 |
-| 5 | Breadboard and jumper wires | Circuit prototyping and connections | ₹250 |
-| 6 | Resistors and basic electronic components | Current limiting and circuit interfacing | ₹100 |
-| 7 | USB cable and power accessories | Power and programming | ₹200 |
-| 8 | Tabletop channel/container and mounting materials | Demonstration setup | ₹500 |
-| 9 | Miscellaneous materials and contingency | Small parts and unforeseen expenses | ₹400 |
-| | **Estimated total** | | **₹2,250** |
+| 1 | ESP32 development board | Reads sensor values and controls alerts | ₹650 |
+| 2 | HC-SR04 ultrasonic sensor | Measures distance to the water surface from a dry, elevated mounting position | ₹250 |
+| 3 | LEDs, resistors and buzzer | Provide visual and audible status alerts | ₹250 |
+| 4 | Breadboard and jumper wires | Circuit prototyping and connections | ₹350 |
+| 5 | USB cable / 5 V power accessories | Power and programming | ₹300 |
+| 6 | Drain channel / model materials | Tabletop drainage demonstration channel | ₹800 |
+| 7 | Base, bracket, catch tray and sealant | Stable mounting and water containment | ₹800 |
+| 8 | Miscellaneous materials and contingency | Small parts and unforeseen expenses | ₹800 |
+| | **Estimated total** | | **₹4,200** |
 
 ## 2. Budget Status
 
-These are preliminary planning estimates, not verified vendor quotations. Prices and component compatibility must be checked before procurement.
+The target budget range is ₹3,000–₹5,000, with a preliminary planning estimate of ₹4,200. Actual costs may change with selected components, vendor prices, shipping, and materials already available in the lab.
 
-The estimated total is ₹2,250, leaving ₹750 below the ₹3,000 budget ceiling.
+The optional flow sensor is excluded from this estimate.
 
-## 3. Procurement Checklist
 
-- [ ] Confirm the microcontroller board and voltage requirements.
-- [ ] Select a sensor compatible with the intended water-level measurement.
-- [ ] Verify component prices with vendors.
-- [ ] Record actual purchase prices and receipts.
-- [ ] Update the table if the selected components or prices change.
+## 3. Important Electrical and Evidence Notes
 
-## 4. Important Limitations
+The HC-SR04 module should be mounted above the water and kept dry. If its ECHO output is 5 V, use a correctly calculated voltage divider or compatible level shifter before connecting it to an ESP32 GPIO, which uses 3.3 V logic. Disconnect power before changing wiring or making wet adjustments.
 
-The proposed component list does not establish that the prototype has been assembled or tested. No performance claims are made from this preliminary budget.
+This is a preliminary cost plan only; it does not establish that the prototype has been assembled or tested. No performance claims are made from this preliminary budget.
 
 **Current status:** Proposed components; procurement and physical testing pending.
